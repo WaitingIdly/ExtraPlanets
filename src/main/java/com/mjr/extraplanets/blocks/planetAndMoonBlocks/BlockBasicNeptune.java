@@ -174,7 +174,7 @@ public class BlockBasicNeptune extends Block implements IDetectableResource, IPl
 
 	@Override
 	public boolean isReplaceableOreGen(IBlockState state, IBlockAccess world, BlockPos pos, Predicate<IBlockState> target) {
-		if (target != Blocks.STONE) {
+		if (!target.test(Blocks.STONE.getDefaultState())) {
 			return false;
 		}
 		return (state.getValue(BASIC_TYPE) == EnumBlockBasic.STONE);
